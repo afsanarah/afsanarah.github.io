@@ -3,42 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photography – Afsana Rahman</title>
+  <title>Photography | Afsana Rahman</title>
 
-  <!-- Styles -->
+  <!-- Global Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- Navigation -->
+
+  <!-- NAVIGATION -->
   <nav class="nav">
     <a href="index.html" class="logo">AR</a>
-    <div class="nav-links">
-      <a href="creative.html">Creative</a>
-      <a href="experience.html">Experience</a>
-      <a href="contact.html">Contact</a>
+
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="technical.html">Technical</a>
+        <a href="photography.html">Photography</a>
+        <a href="digital-campaigns.html">Digital Campaigns</a>
+      </div>
+
+      <div class="nav-icons">
+        <a
+          href="https://www.linkedin.com/in/rahmanafsana/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <img src="assets/images/LinkedinLogo.png" alt="LinkedIn" />
+        </a>
+
+        <a
+          href="mailto:ar4334@columbia.edu"
+          aria-label="Email"
+        >
+          <img src="assets/images/MailLogo.png" alt="Email" />
+        </a>
+      </div>
     </div>
   </nav>
 
-  <!-- Photography Content -->
-  <main class="page">
-    <h2>Photography</h2>
+  <!-- PAGE HEADER (CONSTRAINED) -->
+  <main class="page photo-page">
 
-    <p class="muted">
-      A selection of personal photography focused on light, composition,
-      and everyday moments.
-    </p>
-
-    <!-- Photo Grid -->
-    <div class="photo-grid">
-      <!-- Replace src with your own images -->
-      <img src="assets/images/photo1.jpg" alt="Photography sample 1" />
-      <img src="assets/images/photo2.jpg" alt="Photography sample 2" />
-      <img src="assets/images/photo3.jpg" alt="Photography sample 3" />
-      <img src="assets/images/photo4.jpg" alt="Photography sample 4" />
-      <img src="assets/images/photo5.jpg" alt="Photography sample 5" />
-      <img src="assets/images/photo6.jpg" alt="Photography sample 6" />
-    </div>
+    <!-- GRID SIZE CONTROLS -->
+    <section class="photo-controls">
+      <button data-size="small">S</button>
+      <button data-size="medium" class="active">M</button>
+      <button data-size="large">L</button>
+    </section>
   </main>
+
+  <!-- FULL-WIDTH PHOTO GRID -->
+  <section class="photo-grid-wrapper">
+    <section
+      class="photo-grid medium"
+      id="photoGrid"
+    ></section>
+  </section>
+
+  <p class="photo-footer"><i>more uploads coming soon.</i></p>
+
+  <!-- SCRIPTS -->
+  <script src="js/photo-grid.js" defer></script>
+
 </body>
 </html>
