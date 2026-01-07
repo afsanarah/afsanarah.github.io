@@ -659,3 +659,138 @@ h3 {
   color: #999;
   margin: 0;
 }
+
+/* =========================
+   OVERVIEW SLIDESHOW
+   ========================= */
+
+.overview-slideshow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 80px 0 96px;
+  margin-top: 0px;
+}
+
+.slideshow-wrapper {
+  position: relative;
+  width: 100%;
+  /* max-width: 800px;   makes it smaller */
+}
+
+.slides-window {
+  overflow: hidden;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.slides-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slides-track img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* ARROWS — now INSIDE slideshow */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.slide-arrow:hover {
+  color: black;
+}
+
+.slide-arrow.left {
+  left: 12px;
+}
+
+.slide-arrow.right {
+  right: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slideshow-wrapper {
+    width: 90%;
+  }
+
+  .slide-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   QUICK FACTS (Overview)
+   ========================= */
+
+.quick-facts {
+  width: 100%;
+  max-width: 1600px; /* this is the big unlock */
+  margin: 96px auto 120px;
+  padding: 0 6rem;
+  text-align: center;
+}
+
+.quick-facts h2 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 72px;
+}
+
+.quick-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 80px; /* wider horizontal spacing */
+}
+
+/* INDIVIDUAL BOX */
+.fact {
+  border: 1px solid #e6e6e6;
+  padding: 56px 48px;
+  text-align: center;
+
+  /* CRITICAL */
+  width: 100%;
+  max-width: none;
+}
+/* HEADINGS */
+.fact h3 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 24px;
+  color: #000;
+}
+
+/* BODY TEXT */
+.fact p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 0;
+
+  /* KEY CHANGE */
+  max-width: 100%;
+  white-space: normal;
+}
