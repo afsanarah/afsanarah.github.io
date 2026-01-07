@@ -61,3 +61,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   photos.forEach(photo => observer.observe(photo));
 });
+
+const previewGrid = document.querySelector(".preview-grid");
+
+if (previewGrid) {
+  const ROW_SIZE = 4;
+  let currentRow;
+
+  for (let i = 1; i <= 16; i++) {
+    // start a new row every 4 photos
+    if ((i - 1) % ROW_SIZE === 0) {
+      currentRow = document.createElement("div");
+      currentRow.className = "preview-row";
+      previewGrid.appendChild(currentRow);
+    }
+
+    const photo = document.createElement("div");
+    photo.className = "photo-item";
+
+    const img = document.createElement("img");
+    img.src = `assets/photoTab/photo${i}.png`;
+    img.alt = `Photo ${i}`;
+    img.loading = "lazy";
+
+    photo.appendChild(img);
+    currentRow.appendChild(photo);
+  }
+
+  // observe rows
+  const rowObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          rowObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  document.querySelectorAll(".preview-row").forEach(row => {
+    rowObserver.observe(row);
+  });
+}

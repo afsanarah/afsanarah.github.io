@@ -100,10 +100,10 @@ h3 {
 ========================= */
 
 .tagline {
-  font-size: 1.1rem;
+  max-width: none;
+  font-size: 1.05rem;
   color: #444;
-  max-width: 640px;
-  margin: 0 auto 32px;
+  margin-bottom: 28px;
 }
 
 .muted {
@@ -235,7 +235,7 @@ h3 {
   text-align: center;
   font-size: 0.8rem;
   color: #aaa;
-  margin: 48px 0 24px;
+  margin: 24px 0 16px;
 }
 
 .photo-controls button {
@@ -291,9 +291,8 @@ h3 {
 ========================= */
 
 .hero {
-  min-height: calc(100vh - 72px); /* nav height */
-  display: flex;
-  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 24px; /* ⬅️ much tighter */
 }
 
 /* Layout inside hero */
@@ -306,6 +305,7 @@ h3 {
   grid-template-columns: 420px 1fr;
   gap: 72px;
   align-items: center;
+  margin-top: 0;
 }
 
 /* Image */
@@ -547,4 +547,115 @@ h3 {
   .accordion-header {
     font-size: 24px;
   }
+}
+/* =========================
+   INDEX LIST GRID
+========================= */
+
+.index-grid {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 48px;
+  margin-bottom: 24px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+}
+
+.grid-column h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.grid-column ol {
+  margin: 0;
+  padding-left: 18px; /* controls number indent */
+}
+
+.grid-column li {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .index-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   INDEX PHOTO PREVIEW
+========================= */
+
+.photo-preview-wrapper {
+  width: 80%;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.preview-grid .photo-item {
+  position: relative;
+}
+
+/* =========================
+   INDEX PHOTO PREVIEW ROW ANIMATION
+========================= */
+
+.preview-row {
+  display: contents; /* keeps grid layout intact */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.preview-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* index preview photos should always be visible */
+.preview-grid .photo-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================
+   INDEX DIVIDER
+========================= */
+
+.index-divider {
+  width: 100%;
+  max-width: 1100px;
+  height: 1px;
+  background-color: #e6e6e6;
+  margin: 24px auto; /* ⬅️ reduced */
+}
+
+/* =========================
+   GLOBAL FOOTER
+========================= */
+
+.site-footer {
+  margin-top: 24px; /* ⬅️ was 80px */
+  padding: 24px 24px 32px;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
 }
